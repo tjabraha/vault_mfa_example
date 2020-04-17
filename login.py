@@ -10,7 +10,7 @@ password = input('Password: ')
 # password = getpass.getpass(prompt='Password: ')
 
 # Operator provided values.  The only thing you need to change is to add your vault root token
-vault_root_token = 's.7osR7zASDqNNfhvFxxZPbSZz'
+vault_root_token = '<enter your Vault root token>'
 base_vault_url = 'http://127.0.0.1:8200/'
 secret_url_path = '%sv1/kv/data/application_name/users/%s' % (base_vault_url, user_name)
 hash_algorithm_url_path = '%sv1/sys/tools/hash/sha2-256' % base_vault_url
