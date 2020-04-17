@@ -1,4 +1,4 @@
-import requests
+import requests  # you will need to install the requests module (command: pip3 install requests)
 import json
 import getpass
 
@@ -14,7 +14,7 @@ vault_root_token = 's.7osR7zASDqNNfhvFxxZPbSZz'
 base_vault_url = 'http://127.0.0.1:8200/'
 secret_url_path = '%sv1/kv/data/application_name/users/%s' % (base_vault_url, user_name)
 hash_algorithm_url_path = '%sv1/sys/tools/hash/sha2-256' % base_vault_url
-totp_endpoint_url = '%sv1/totp/code/%s' %(base_vault_url, user_name)
+totp_endpoint_url = '%sv1/totp/code/%s' % (base_vault_url, user_name)
 vault_root_token_headers = {'X-Vault-Token': vault_root_token}
 hash_data = {"input": password}
 
@@ -33,7 +33,7 @@ if password_from_user == password_from_vault:
     mfa_token = input('Enter the MFA Token: ')
     mfa_data = {"code": mfa_token}
     check_if_token_is_valid = requests.put(totp_endpoint_url, headers=vault_root_token_headers, data=mfa_data)
-    if check_if_token_is_valid.status_code !=200:
+    if check_if_token_is_valid.status_code != 200:
         print('Code already used; wait until the next time period')
         print('Login Failed')
         exit(0)
