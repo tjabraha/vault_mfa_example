@@ -6,7 +6,7 @@ import getpass
 user_name = input('Username: ')
 password = input('Password: ')
 
-# Uncomment this line to use the password so it won't echo to the screen
+# Uncomment this line to use the password so it won't echo to the screen. Make sure to uncomment the previous line
 # password = getpass.getpass(prompt='Password: ')
 
 # Operator provided values.  The only thing you need to change is to add your vault root token
