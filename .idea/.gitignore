@@ -1,0 +1,9 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+.idea/
+/misc.xml
+/modules.xml
+/inspectionProfiles/profiles_settings.xml
+/vaultmfa.iml
+/vcs.xml
