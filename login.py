@@ -6,11 +6,11 @@ import getpass
 user_name = input('Username: ')
 password = input('Password: ')
 
-# Uncomment this line to use the password so it won't echo to the screen. Make sure to uncomment the previous line
+# Uncomment this line to use the password so it won't echo to the screen. Make sure to comment the previous line
 # password = getpass.getpass(prompt='Password: ')
 
 # Operator provided values.  The only thing you need to change is to add your vault root token
-vault_root_token = '<enter your Vault root token>'
+vault_root_token = '<enter your Vault root token>'  # Enter in the root token for your Vault Dev Instance
 base_vault_url = 'http://127.0.0.1:8200/'
 secret_url_path = '%sv1/kv/data/application_name/users/%s' % (base_vault_url, user_name)
 hash_algorithm_url_path = '%sv1/sys/tools/hash/sha2-256' % base_vault_url
