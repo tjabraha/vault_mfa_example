@@ -24,11 +24,19 @@ pass_hash = json.loads(hash_the_password.content)
 get_password_data = requests.get(secret_url_path, headers=vault_root_token_headers)
 password_value = json.loads(get_password_data.content)
 
-# This section parses the json from the responses
-password_from_user = pass_hash['data']['sum']
-password_from_vault = password_value['data']['data']['password']
+# This section parses the json from the responses.  If either the user or pass are incorrect it will say login failed
+try:
+    password_from_user = pass_hash['data']['sum']
+except:
+    print('Login Failed')
+    exit(0)
+try:
+    password_from_vault = password_value['data']['data']['password']
+except:
+    print('Login Failed')
+    exit(0)
 
-# This is the main logic of the login program.  Will error out if any of the conditions fail
+# This is the main logic of the login program.  if any of the conditions fail it will say login failed.
 if password_from_user == password_from_vault:
     mfa_token = input('Enter the MFA Token: ')
     mfa_data = {"code": mfa_token}
